@@ -1,0 +1,9 @@
+services:
+  unix-build:
+    build: .
+    container_name: my_unix_env
+    volumes:
+      - ./rootfs:/env
+    stdin_open: true
+    tty: true
+    command: ["/bin/sh"]
