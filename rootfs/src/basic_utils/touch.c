@@ -1,7 +1,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int main() {
+int main(int argc, char **argv) {
     /*
     O_CREAT: create file if not exist
     O_WRONLY: write only
@@ -9,6 +9,7 @@ int main() {
     S_IRUSR: read user
     S_IWUSR: write user
     */
-    int fd = open("foo", O_CREAT |O_WRONLY|O_TRUNC,S_IRUSR|S_IWUSR);
+    char *file_name = argv[1];
+    int fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     return 0;
 }
