@@ -7,6 +7,17 @@ typedef struct {
     double* data;
 } matrix;
 
+matrix* read_jsonl(char* file_path) {
+    matrix *m = (matrix *)malloc(sizeof(matrix));
+
+    FILE *fptr = fopen(file_path, "r");
+    char buff[100];
+    fgets(buff, sizeof(buff), fptr);
+    printf("%s", buff);
+
+    return m;
+}
+
 matrix* create_zero_matrix(size_t n_rows, size_t n_cols) {
     matrix *m = (matrix *)malloc(sizeof(matrix));
     m->rows = n_rows;
@@ -45,15 +56,4 @@ void print_matrix(matrix* m) {
         }
         printf("\n");
     }
-}
-
-int main(int argc, char** argv) {
-    matrix *m = create_zero_matrix(5, 4);
-    m->data[2] = 1.0;
-    matrix *t = transpose(m);
-    printf("Original %zuX%zu:\n", m->rows, m->cols);
-    print_matrix(m);
-    printf("Transpose %zuX%zu:\n", t->rows, t->cols);
-    print_matrix(t);
-    exit(0);
 }
