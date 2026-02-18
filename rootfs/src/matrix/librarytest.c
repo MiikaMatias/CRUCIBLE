@@ -9,5 +9,9 @@ int main() {
     print_matrix(m);
     printf("Transpose %zuX%zu:\n", t->matrix_info->rows, t->matrix_info->cols);
     print_matrix(t);
+
+    matrix *iris = read_csv("/env/data/iris-data.csv");
+    print_matrix(iris);
+
     exit(0);
 }

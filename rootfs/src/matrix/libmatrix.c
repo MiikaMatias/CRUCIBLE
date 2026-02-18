@@ -1,14 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matrix.h"
+#include <string.h>
+
+char *get_next_line(FILE *fp) {
+    int cap = 10;
+    int current_size = 0;
+    char *line = malloc(cap);
+    int ch;
+
+    while ((ch = fgetc(fp)) != EOF && ch != '\n') {
+        if (current_size + 1 > cap) {
+            cap += 10;
+            line = realloc(line, cap);
+        }
+        line[current_size++] = ch;
+    }
+
+    return line;
+}
 
 matrix* read_csv(char* file_path) {
     matrix *m = (matrix *)malloc(sizeof(matrix));
+    minfo *matrix_info = (minfo *)malloc(sizeof(minfo));
+    m->matrix_info = matrix_info;
 
-    FILE *fptr = fopen(file_path, "r");
-    char buff[100];
-    fgets(buff, sizeof(buff), fptr);
-    printf("%s", buff);
+    FILE *fp = fopen(file_path, "r");
+    printf(get_next_line(fp));
 
     return m;
 }
