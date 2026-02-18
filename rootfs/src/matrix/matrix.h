@@ -6,7 +6,13 @@
 typedef struct{
     size_t cols;
     size_t rows;
-    double* data;
+    char* col_names[];
+} minfo;
+
+typedef struct
+{
+    minfo *matrix_info;
+    double *data;
 } matrix;
 
 /* Read a .jsonl file line by line and return as matrix
