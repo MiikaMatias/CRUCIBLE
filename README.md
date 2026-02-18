@@ -12,7 +12,7 @@ docker compose up
 You are now in the runtime. Run binaries 
 
 ## INPUT DATA
-All input data should be in a jsonl format. Why? It's easy to read and trivial to parse. 
+All input data should be in a csv format.
 
 ## MODELS
 All models I've implemented thus far

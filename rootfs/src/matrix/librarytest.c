@@ -1,7 +1,7 @@
-#include "./matrix.h"
 #include <stdio.h>
+#include "matrix.h"
 
-int main(int argc, char** argv) {
+int main() {
     matrix *m = create_zero_matrix(5, 4);
     m->data[2] = 1.0;
     matrix *t = transpose(m);
