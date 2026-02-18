@@ -1,6 +1,7 @@
 PROJECT_NAME=$1
 LIBDIR=/env/lib
 
-gcc -c $PROJECT_NAME/$PROJECT_NAME.c -o $PROJECT_NAME/$PROJECT_NAME.o
-ar rcs $LIBDIR/lib$PROJECT_NAME.a $PROJECT_NAME/$PROJECT_NAME.o
-
+cd ./$PROJECT_NAME
+make
+make clean
+cd ..
