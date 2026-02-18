@@ -7,7 +7,7 @@ typedef struct {
     double* data;
 } matrix;
 
-matrix* read_jsonl(char* file_path) {
+matrix* read_csv(char* file_path) {
     matrix *m = (matrix *)malloc(sizeof(matrix));
 
     FILE *fptr = fopen(file_path, "r");
